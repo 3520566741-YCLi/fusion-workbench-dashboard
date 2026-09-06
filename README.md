@@ -111,14 +111,22 @@ Code copy is written in English; the Chinese translation lives in
 back to English, so adding a module stays bilingual-safe. When you change
 copy, add or update the matching entry in the table.
 
+## Customizing with AI
+
+This is a framework meant to be adapted with an AI coding assistant. See
+[`docs/CUSTOMIZING_WITH_AI.md`](docs/CUSTOMIZING_WITH_AI.md) for a step-by-step
+guide (English and 简体中文 versions).
+
 ## Privacy & origin
 
 This public repository is a cleaned-up, English-first re-publication of a
-private personal project. Personal identifiers (profile ids, local paths,
-usernames, history) were removed and the history was started fresh on purpose.
-The Windows port is a source-level port of the macOS modules; it cannot be
-built on macOS and was written conservatively to build with a stock .NET 8
-SDK. Please report issues on a machine with Windows.
+private personal project — a **pure framework**. Personal identifiers (profile
+ids, local paths, usernames, emails, history) were removed; the history was
+started fresh and **commit authors are anonymized** to a neutral project
+identity. It contains no personal data, no keys, and no binaries — build the
+apps yourself from source. The Windows port is a source-level port of the
+macOS modules; it cannot be built on macOS and was written conservatively to
+build with a stock .NET 8 SDK. Please report issues on a machine with Windows.
 
 ## Feedback
 

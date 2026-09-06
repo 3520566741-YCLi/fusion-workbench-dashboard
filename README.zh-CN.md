@@ -101,12 +101,20 @@ defaults write com.fusionworkbench.dashboard makerWorldUserID -int 你的ID
 `Sources/FusionWorkbench/Localization.swift`。缺少的键会自动回退到英文，因此新增模块也能
 天然保持双语安全。修改文案时，请同步更新表中的对应条目。
 
+## 用 AI 个性化配置
+
+这是一个用来交给 AI 编程助手适配的框架。逐步指南见
+[`docs/CUSTOMIZING_WITH_AI.zh-CN.md`](docs/CUSTOMIZING_WITH_AI.zh-CN.md)
+（另附英文版 `docs/CUSTOMIZING_WITH_AI.md`）。
+
 ## 隐私与来源
 
-本公开仓库是个人私有项目的“清洗后、以英文为主”的再发布版。个人标识（主页 ID、本地路径、
-用户名、历史记录）已移除，git 历史特意全新开始。Windows 移植是对 macOS 各模块的源码级
-移植；它无法在 macOS 上编译，编写时尽量保守，目标是用标准 .NET 8 SDK 即可构建。请在
-Windows 机器上反馈问题。
+本公开仓库是个人私有项目的“清洗后、以英文为主”的再发布版——一个**纯框架**。
+个人标识（主页 ID、本地路径、用户名、邮箱、历史记录）已全部移除；git 历史
+特意全新开始，且**提交作者已匿名化**为中性项目身份。仓库中不含任何个人数据、
+密钥或二进制文件——请自行从源码构建应用。Windows 移植是对 macOS 各模块的
+源码级移植；它无法在 macOS 上编译，编写时尽量保守，目标是用标准 .NET 8 SDK
+即可构建。请在 Windows 机器上反馈问题。
 
 ## 反馈
 
