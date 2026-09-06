@@ -1,0 +1,118 @@
+<UserControl x:Class="FusionWorkbench.Views.MakerWorldCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border Style="{StaticResource CardBorder}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="9" Height="9" Fill="{Binding StatusBrush}" Margin="0,0,8,0" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="1" Text="{DynamicResource CardTitle_MakerWorld}" Style="{StaticResource TextTitle}" />
+                <TextBlock Grid.Column="2" Text="{Binding StatusLabel}" Style="{StaticResource TextStatus}"
+                           Foreground="{Binding StatusBrush}" Margin="8,0,0,0" />
+            </Grid>
+
+            <Separator Grid.Row="1" />
+
+            <Grid Grid.Row="2" Margin="0,4,0,0">
+                <!-- Available: profile rows -->
+                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                              Visibility="{Binding IsAvailable, Converter={StaticResource BoolToVis}}">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{DynamicResource Lbl_Name}" Style="{StaticResource TextRowLabel}" />
+                            <TextBlock Grid.Column="1" Text="{Binding DisplayNameText}" Style="{StaticResource TextRowValue}" MaxWidth="260" />
+                        </Grid>
+                        <Grid Margin="0,3,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{DynamicResource Lbl_Handle}" Style="{StaticResource TextRowLabel}" />
+                            <TextBlock Grid.Column="1" Text="{Binding HandleText}" Style="{StaticResource TextRowValue}" MaxWidth="260" />
+                        </Grid>
+
+                        <Separator Margin="0,8" />
+
+                        <!-- Stat chips -->
+                        <WrapPanel>
+                            <StackPanel Margin="0,0,14,8">
+                                <TextBlock Text="{DynamicResource Lbl_Fans}" Style="{StaticResource TextStatTitle}" />
+                                <TextBlock Text="{Binding FansText}" Style="{StaticResource TextStatValue}" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,14,8">
+                                <TextBlock Text="{DynamicResource Lbl_Following}" Style="{StaticResource TextStatTitle}" />
+                                <TextBlock Text="{Binding FollowingText}" Style="{StaticResource TextStatValue}" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,14,8">
+                                <TextBlock Text="{DynamicResource Lbl_Likes}" Style="{StaticResource TextStatTitle}" />
+                                <TextBlock Text="{Binding LikesText}" Style="{StaticResource TextStatValue}" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,14,8">
+                                <TextBlock Text="{DynamicResource Lbl_Collections}" Style="{StaticResource TextStatTitle}" />
+                                <TextBlock Text="{Binding CollectionsText}" Style="{StaticResource TextStatValue}" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,14,8">
+                                <TextBlock Text="{DynamicResource Lbl_Designs}" Style="{StaticResource TextStatTitle}" />
+                                <TextBlock Text="{Binding DesignsText}" Style="{StaticResource TextStatValue}" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,14,8">
+                                <TextBlock Text="{DynamicResource Lbl_DesignDownloads}" Style="{StaticResource TextStatTitle}" />
+                                <TextBlock Text="{Binding DownloadsText}" Style="{StaticResource TextStatValue}" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,14,8">
+                                <TextBlock Text="{DynamicResource Lbl_DesignPrints}" Style="{StaticResource TextStatTitle}" />
+                                <TextBlock Text="{Binding PrintsText}" Style="{StaticResource TextStatValue}" />
+                            </StackPanel>
+                        </WrapPanel>
+
+                        <Separator Margin="0,8" />
+
+                        <TextBlock Text="{DynamicResource Lbl_Models}" Style="{StaticResource TextRowLabel}"
+                                   FontWeight="SemiBold" Margin="0,0,0,4" />
+                        <ItemsControl ItemsSource="{Binding Models}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="0,2">
+                                        <TextBlock Text="{Binding Title}" Style="{StaticResource TextRowValue}"
+                                                   TextTrimming="CharacterEllipsis" />
+                                        <TextBlock Text="{Binding StatsText}" Style="{StaticResource TextCaption}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </ScrollViewer>
+
+                <!-- Unavailable -->
+                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                              Visibility="{Binding IsAvailable, Converter={StaticResource InverseBoolToVis}}">
+                    <StackPanel>
+                        <Border Style="{StaticResource StatusPanel}" Margin="0,4">
+                            <TextBlock Text="{Binding Message}" Style="{StaticResource TextBody}" TextAlignment="Center" />
+                        </Border>
+                        <TextBlock Text="{DynamicResource Lbl_ConfigureHint}" Style="{StaticResource TextCaption}"
+                                   HorizontalAlignment="Center" Margin="0,6,0,0" />
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+
+            <TextBlock Grid.Row="3" Text="{Binding UpdatedText}" Style="{StaticResource TextCaption}" Margin="0,6,0,0" />
+        </Grid>
+    </Border>
+</UserControl>

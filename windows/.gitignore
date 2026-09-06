@@ -1,0 +1,14 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio / user settings
+.vs/
+*.user
+*.suo
+
+# Rider
+.idea/
+
+# Publish output
+publish/

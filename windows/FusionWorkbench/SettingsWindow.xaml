@@ -1,0 +1,57 @@
+<Window x:Class="FusionWorkbench.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource Lbl_SettingsTitle}"
+        Width="480" Height="300"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Background="{StaticResource BrushWindowBg}"
+        FontFamily="Segoe UI" FontSize="13"
+        TextOptions.TextFormattingMode="Display">
+    <Grid Margin="18">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Language (mirrors the toolbar toggle; kept so Settings is self-contained) -->
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="{DynamicResource Lbl_AppLanguage}" Style="{StaticResource TextRowLabel}" FontWeight="SemiBold" />
+            <StackPanel x:Name="LanguageGroup" Orientation="Horizontal" Margin="0,8,0,0">
+                <RadioButton GroupName="DialogLanguage" Tag="en" Content="{DynamicResource Lbl_English}"
+                             Style="{StaticResource LanguageToggle}" Checked="OnDialogLanguageChecked" />
+                <RadioButton GroupName="DialogLanguage" Tag="zh" Content="{DynamicResource Lbl_Chinese}"
+                             Style="{StaticResource LanguageToggle}" Margin="8,0,0,0" Checked="OnDialogLanguageChecked" />
+            </StackPanel>
+        </StackPanel>
+
+        <Separator Grid.Row="1" />
+
+        <!-- MakerWorld user id -->
+        <StackPanel Grid.Row="2" Margin="0,4,0,0">
+            <TextBlock Text="{DynamicResource Lbl_MakerWorldUserId}" Style="{StaticResource TextRowLabel}" FontWeight="SemiBold" />
+            <TextBox x:Name="MakerWorldIdBox" Margin="0,8,0,0" Padding="8,6" FontSize="13"
+                     VerticalContentAlignment="Center" />
+            <TextBlock Text="{DynamicResource Lbl_MakerWorldHelp}" Style="{StaticResource TextCaption}"
+                       TextWrapping="Wrap" Margin="0,8,0,0" />
+        </StackPanel>
+
+        <Grid Grid.Row="3" Margin="0,14,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{DynamicResource Lbl_SettingsDescription}" Style="{StaticResource TextCaption}"
+                       VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap"
+                       MaxWidth="280" />
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button Content="{DynamicResource Lbl_Save}" Click="OnSaveClick" MinWidth="92" />
+                <Button Content="{DynamicResource Lbl_Cancel}" Click="OnCancelClick" MinWidth="92"
+                        Margin="8,0,0,0" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

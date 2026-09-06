@@ -1,0 +1,52 @@
+<UserControl x:Class="FusionWorkbench.Views.WeatherCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf">
+    <Border Style="{StaticResource CardBorder}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="9" Height="9" Fill="{Binding StatusBrush}" Margin="0,0,8,0" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="1" Text="{DynamicResource CardTitle_Weather}" Style="{StaticResource TextTitle}" />
+                <TextBlock Grid.Column="2" Text="{Binding StatusLabel}" Style="{StaticResource TextStatus}"
+                           Foreground="{Binding StatusBrush}" Margin="8,0,0,0" />
+            </Grid>
+
+            <Separator Grid.Row="1" />
+
+            <!-- Caption -->
+            <TextBlock Grid.Row="2" Text="{DynamicResource Lbl_WeatherHint}" Style="{StaticResource TextCaption}"
+                       TextWrapping="Wrap" Margin="0,2,0,6" />
+
+            <!-- Map (WebView2 -> https://earth.nullschool.net/) + unavailable overlay -->
+            <Grid Grid.Row="3" ClipToBounds="True">
+                <Border Background="#FF10141C" CornerRadius="10" BorderBrush="{StaticResource BrushCardBorder}" BorderThickness="1" />
+                <wv2:WebView2 x:Name="EarthView" Margin="1" />
+
+                <Border Background="#E6131922" CornerRadius="10"
+                        Visibility="{Binding IsAvailable, Converter={StaticResource InverseBoolToVis}}">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="420">
+                        <TextBlock Text="{Binding Message}" Style="{StaticResource TextBody}" TextAlignment="Center" />
+                        <Button Content="{DynamicResource Msg_Retry}" Click="OnRetryClick"
+                                HorizontalAlignment="Center" Margin="0,12,0,0" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <TextBlock Grid.Row="4" Text="{Binding UpdatedText}" Style="{StaticResource TextCaption}" Margin="0,6,0,0" />
+        </Grid>
+    </Border>
+</UserControl>

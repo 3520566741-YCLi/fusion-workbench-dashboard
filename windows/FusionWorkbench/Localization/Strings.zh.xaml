@@ -1,0 +1,92 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- 卡片标题 -->
+    <sys:String x:Key="CardTitle_Weather">Nullschool 地球天气</sys:String>
+    <sys:String x:Key="CardTitle_System">本机实时状态</sys:String>
+    <sys:String x:Key="CardTitle_Codex">Codex 实时状态</sys:String>
+    <sys:String x:Key="CardTitle_CommandCode">Command Code 实时状态</sys:String>
+    <sys:String x:Key="CardTitle_GitHub">GitHub 账号概览</sys:String>
+    <sys:String x:Key="CardTitle_MakerWorld">MakerWorld 账号概览</sys:String>
+    <sys:String x:Key="CardTitle_Harness">DeepSeek Harness 实时状态</sys:String>
+
+    <!-- 顶栏 / 窗口 -->
+    <sys:String x:Key="Lbl_Language">语言</sys:String>
+    <sys:String x:Key="Lbl_English">English</sys:String>
+    <sys:String x:Key="Lbl_Chinese">中文</sys:String>
+    <sys:String x:Key="Lbl_Settings">设置</sys:String>
+    <sys:String x:Key="Lbl_RefreshNow">立即刷新</sys:String>
+    <sys:String x:Key="Lbl_AutoRefresh">每 {0} 秒自动刷新</sys:String>
+    <sys:String x:Key="Lbl_NextIn">下次刷新 {0} 秒后</sys:String>
+    <sys:String x:Key="Lbl_Refreshing">正在刷新…</sys:String>
+    <sys:String x:Key="Lbl_LastRefresh">上次刷新 {0}</sys:String>
+
+    <!-- 状态文字 -->
+    <sys:String x:Key="Status_Checking">检查中…</sys:String>
+    <sys:String x:Key="Status_Available">可用</sys:String>
+    <sys:String x:Key="Status_Unavailable">不可用</sys:String>
+    <sys:String x:Key="Status_Connected">已连接</sys:String>
+    <sys:String x:Key="Status_Monitoring">监控中</sys:String>
+
+    <!-- 状态说明 -->
+    <sys:String x:Key="Msg_WaitingFirstSample">等待首次采样…</sys:String>
+    <sys:String x:Key="Msg_SystemUnavailable">无法读取本机系统指标。</sys:String>
+    <sys:String x:Key="Msg_GhNotFound">未在 PATH 中找到 GitHub CLI（gh）。请先用 winget install GitHub.cli 安装，再执行 gh auth login 登录。</sys:String>
+    <sys:String x:Key="Msg_GhNotAuthenticated">GitHub CLI 尚未登录。请运行 gh auth login 后重试。</sys:String>
+    <sys:String x:Key="Msg_GhCommandFailed">GitHub CLI 请求失败：{0}</sys:String>
+    <sys:String x:Key="Msg_NetworkError">网络错误：{0}</sys:String>
+    <sys:String x:Key="Msg_Timeout">请求超时。</sys:String>
+    <sys:String x:Key="Msg_HttpError">服务器返回 HTTP {0}。</sys:String>
+    <sys:String x:Key="Msg_ConfigureMakerWorldId">请在“设置”中填写你的 MakerWorld 用户 ID 以启用此卡片。</sys:String>
+    <sys:String x:Key="Msg_InvalidMakerWorldId">MakerWorld 用户 ID 必须是纯数字（个人主页网址中的数字部分）。</sys:String>
+    <sys:String x:Key="Msg_MacOSOnly_Harness">此数据源仅存在于 macOS 版：它读取 macOS 桌面应用维护的本地 DeepSeek Harness 数据目录（~/.dsh）。Windows 上没有对应的本地数据。</sys:String>
+    <sys:String x:Key="Msg_MacOSOnly_Codex">此数据源仅存在于 macOS 版：它通过 stdio 与本机 Codex app-server（随 macOS 版 ChatGPT 应用提供）通信。Windows 上没有对应的服务。</sys:String>
+    <sys:String x:Key="Msg_MacOSOnly_CommandCode">此数据源仅存在于 macOS 版：它运行随 macOS 版 Command Code 应用提供的 CLI。Windows 上没有对应的 CLI。</sys:String>
+    <sys:String x:Key="Msg_WebView2Missing">显示地球地图需要 WebView2 Runtime。请安装 Evergreen WebView2 Runtime（参见 windows/README.md）后重新启动 Fusion Workbench。</sys:String>
+    <sys:String x:Key="Msg_WebViewInitFailed">无法启动地球地图视图：{0}</sys:String>
+    <sys:String x:Key="Msg_WebLoadFailed">无法加载地球地图：{0}</sys:String>
+    <sys:String x:Key="Msg_Retry">重试</sys:String>
+
+    <!-- 行 / 标签 -->
+    <sys:String x:Key="Lbl_Updated">更新于 {0}</sys:String>
+    <sys:String x:Key="Lbl_CPU">CPU</sys:String>
+    <sys:String x:Key="Lbl_Memory">内存</sys:String>
+    <sys:String x:Key="Lbl_Disk">磁盘</sys:String>
+    <sys:String x:Key="Lbl_Cores">逻辑核心</sys:String>
+    <sys:String x:Key="Lbl_OS">操作系统</sys:String>
+    <sys:String x:Key="Lbl_None">无</sys:String>
+    <sys:String x:Key="Lbl_RecentlyUpdated">最近更新</sys:String>
+    <sys:String x:Key="Lbl_Account">账号</sys:String>
+    <sys:String x:Key="Lbl_Joined">加入时间</sys:String>
+    <sys:String x:Key="Lbl_Organizations">组织</sys:String>
+    <sys:String x:Key="Lbl_Stat_Public">公开仓库</sys:String>
+    <sys:String x:Key="Lbl_Stat_Private">私有仓库</sys:String>
+    <sys:String x:Key="Lbl_Stat_Total">仓库总数</sys:String>
+    <sys:String x:Key="Lbl_Stat_Forks">分叉</sys:String>
+    <sys:String x:Key="Lbl_PrivateBadge">私有</sys:String>
+    <sys:String x:Key="Lbl_ForkBadge">fork</sys:String>
+    <sys:String x:Key="Lbl_Name">名称</sys:String>
+    <sys:String x:Key="Lbl_Handle">用户名</sys:String>
+    <sys:String x:Key="Lbl_Fans">粉丝</sys:String>
+    <sys:String x:Key="Lbl_Following">关注</sys:String>
+    <sys:String x:Key="Lbl_Likes">点赞</sys:String>
+    <sys:String x:Key="Lbl_Collections">收藏</sys:String>
+    <sys:String x:Key="Lbl_Designs">设计</sys:String>
+    <sys:String x:Key="Lbl_DesignDownloads">下载</sys:String>
+    <sys:String x:Key="Lbl_DesignPrints">打印</sys:String>
+    <sys:String x:Key="Lbl_Models">模型</sys:String>
+    <sys:String x:Key="Lbl_ModelStats">点赞 {0} · 下载 {1} · 打印 {2}</sys:String>
+    <sys:String x:Key="Lbl_WeatherHint">来自 earth.nullschool.net 的交互地球——拖动旋转，滚轮缩放。</sys:String>
+    <sys:String x:Key="Lbl_ConfigureHint">打开“设置”可修改 MakerWorld 用户 ID。</sys:String>
+
+    <!-- 设置对话框 -->
+    <sys:String x:Key="Lbl_SettingsTitle">设置</sys:String>
+    <sys:String x:Key="Lbl_AppLanguage">界面语言</sys:String>
+    <sys:String x:Key="Lbl_MakerWorldUserId">MakerWorld 用户 ID</sys:String>
+    <sys:String x:Key="Lbl_MakerWorldHelp">MakerWorld 个人主页网址中的数字部分，例如 makerworld.com/u/12345678 → 12345678。留空则 MakerWorld 卡片保持不可用。</sys:String>
+    <sys:String x:Key="Lbl_SettingsDescription">这些设置仅保存在本机。</sys:String>
+    <sys:String x:Key="Lbl_Save">保存</sys:String>
+    <sys:String x:Key="Lbl_Cancel">取消</sys:String>
+
+</ResourceDictionary>

@@ -1,0 +1,99 @@
+<Window x:Class="FusionWorkbench.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:v="clr-namespace:FusionWorkbench.Views"
+        Title="Fusion Workbench"
+        Width="1280" Height="860"
+        MinWidth="1080" MinHeight="740"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BrushWindowBg}"
+        FontFamily="Segoe UI" FontSize="13"
+        TextOptions.TextFormattingMode="Display">
+    <Window.Resources>
+        <Style x:Key="ToolbarCaption" TargetType="TextBlock" BasedOn="{StaticResource TextCaption}">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- ====================== Top toolbar ====================== -->
+        <Border Grid.Row="0" Background="{StaticResource BrushToolbarBg}"
+                BorderBrush="{StaticResource BrushCardBorder}" BorderThickness="0,0,0,1"
+                Padding="16,8">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Brand -->
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Ellipse Width="10" Height="10" Fill="{StaticResource BrushMint}" Margin="0,0,10,0" VerticalAlignment="Center" />
+                    <TextBlock Text="Fusion Workbench" FontSize="17" FontWeight="Bold"
+                               Foreground="{StaticResource BrushTextPrimary}" VerticalAlignment="Center" />
+                </StackPanel>
+
+                <!-- Controls -->
+                <StackPanel x:Name="LanguageButtons" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="{DynamicResource Lbl_Language}" Style="{StaticResource ToolbarCaption}"
+                               Margin="0,0,8,0" />
+
+                    <RadioButton GroupName="Language" Tag="en" Content="{DynamicResource Lbl_English}"
+                                 Style="{StaticResource LanguageToggle}" Checked="OnLanguageChecked" />
+                    <RadioButton GroupName="Language" Tag="zh" Content="{DynamicResource Lbl_Chinese}"
+                                 Style="{StaticResource LanguageToggle}" Margin="6,0,14,0" Checked="OnLanguageChecked" />
+
+                    <Button Content="{DynamicResource Lbl_Settings}" Click="OnSettingsClick" Margin="0,0,6,0" />
+
+                    <Border Width="1" Background="{StaticResource BrushCardBorder}" Margin="8,4" />
+
+                    <TextBlock Text="{Binding RefreshCycleText}" Style="{StaticResource ToolbarCaption}"
+                               Margin="10,0,14,0" />
+                    <TextBlock Text="{Binding LastRefreshText}" Style="{StaticResource ToolbarCaption}"
+                               Margin="0,0,14,0" />
+
+                    <Button Content="{DynamicResource Lbl_RefreshNow}" Click="OnRefreshClick" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- ====================== Dashboard grid ======================
+             Resizable "glass" cards on a proportional grid; every cell is '*'-sized so cards
+             grow/shrink with the window. Layout roughly follows the macOS default reading order:
+             Weather (wide) | System (tall), GitHub (wide), MakerWorld | Codex | Command Code,
+             Harness (wide, bottom). -->
+        <Grid Grid.Row="1" Margin="6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3.1*" />
+                <RowDefinition Height="2.7*" />
+                <RowDefinition Height="2.3*" />
+                <RowDefinition Height="2.3*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <v:WeatherCard Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                           DataContext="{Binding Weather}" Margin="6" />
+            <v:SystemCard Grid.Row="0" Grid.RowSpan="2" Grid.Column="2"
+                          DataContext="{Binding System}" Margin="6" />
+            <v:GitHubCard Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                          DataContext="{Binding GitHub}" Margin="6" />
+            <v:MakerWorldCard Grid.Row="2" Grid.Column="0"
+                              DataContext="{Binding MakerWorld}" Margin="6" />
+            <v:CodexCard Grid.Row="2" Grid.Column="1"
+                         DataContext="{Binding Codex}" Margin="6" />
+            <v:CommandCodeCard Grid.Row="2" Grid.Column="2"
+                               DataContext="{Binding CommandCode}" Margin="6" />
+            <v:HarnessCard Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"
+                           DataContext="{Binding Harness}" Margin="6" />
+        </Grid>
+    </Grid>
+</Window>

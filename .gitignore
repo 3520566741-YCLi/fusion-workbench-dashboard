@@ -1,0 +1,9 @@
+.build/
+.DS_Store
+dist/
+.superpowers/
+
+# Windows (dotnet)
+windows/**/bin/
+windows/**/obj/
+*.user
