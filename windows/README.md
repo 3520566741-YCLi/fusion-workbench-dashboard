@@ -1,3 +1,5 @@
+> 🌏 **English** · [简体中文](README.zh-CN.md)
+
 # Fusion Workbench — Windows port (WPF, C#, .NET 8)
 
 All-English port of the macOS "Fusion Workbench" SwiftUI dashboard

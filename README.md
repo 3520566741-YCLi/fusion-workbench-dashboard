@@ -1,3 +1,5 @@
+> 🌏 **English** · [简体中文](README.zh-CN.md)
+
 # Fusion Workbench — Dashboard
 
 A live, resizeable status dashboard for the things you run on your computer:
